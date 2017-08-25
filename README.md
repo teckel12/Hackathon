@@ -1,3 +1,5 @@
+# SSC Hackathon
+
 ## Install dependencies: Ruby, Compass & Node.js
 1. Install Ruby: https://rubyinstaller.org/downloads/ (x64, click "Add Ruby executables to your path" during installation)
 2. Start Ruby command prompt
