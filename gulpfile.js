@@ -27,7 +27,7 @@ gulp.task("sass", function() {
 gulp.task('default', ['sass'], function () {
     browsersync.init();
     gulp.watch("./sass/**/*.scss", ['sass']);
-    gulp.watch(["./index.php", "./v1/**/*.php", "./js/**/*.js"], ['bs-reload']);
+    gulp.watch(["./index.php", "./js/**/*.js"], ['bs-reload']);
 });
 
 // Force reload (for PHP or JS)
