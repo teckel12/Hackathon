@@ -28,7 +28,7 @@
 
 		<div id="main">
 		    <div class="contain">
-				<p>Hello world!!!</p>
+				<p>Hello world!</p>
 				<div id="vue">
 					<ul>
 						<li v-for="(item, index) in items">
