@@ -12,29 +12,39 @@
 		<link href="/fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
 	</head>
 
-	<body class="css-transitions-off waiting">
+	<body class="waiting">
 		<script type='text/javascript'>//<![CDATA[
 		document.write("<script async src='//HOST:3000/browser-sync-client.1.1.2.js'><\/script>".replace(/HOST/g, location.hostname));
 		//]]></script>
-		<!--[if lt IE 8]>
-		<p class="viewerror">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" target="_blank">upgrade your browser</a> to improve your experience.</p>
-		<![endif]-->
 
 		<div id="header">
 		    <div class="contain">
-                <h1>Title</h1>
+				<h1>Todo List w/Markdown</h1>
 			</div>
 		</div>
 
 		<div id="main">
 		    <div class="contain">
-				<p>Hello world!</p>
+				<button id="dueSort"><i class="fa fa-sort-amount-asc" aria-hidden="true"></i> Due Sort</button>
+				<button id="titleSort"><i class="fa fa-sort-alpha-asc" aria-hidden="true"></i> Title Sort</button>
 				<div id="vue">
-					<ul>
-						<li v-for="(item, index) in items">
-							{{ item.message }}
-						</li>
-					</ul>
+					<div id="todo">
+						<div v-for="(item, index) in todo">
+							<div class="title">
+								<i class="fa fa-chevron-down expand" v-on:click="expand()"></i>
+								<span>Due:</span><input type="date" v-model="item.timestamp" v-on:change="save()">
+								<span>Title:</span><input type="text" v-model="item.title" v-on:change="save()">
+								<i class="fa fa-trash delete" v-on:click="remove(index, item.title)"></i>
+							</div>
+							<div class="content">
+								<textarea v-model="item.content" v-on:change="save()" v-on:keyup="keyup()"></textarea>
+								<div class="markdown"></div>
+							</div>
+						</div>
+					</div>
+					<div class="add">
+						<i class="fa fa-plus" v-on:click="add()"></i>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -58,10 +68,7 @@
 
 		<script src="/js/jquery-3.0.0.min.js" type="text/javascript"></script>
 		<script src="/js/vue-2.0.1.min.js"></script>
-<!--
-		<script src="/js/jquery.tablesorter.min-2.26.6.js" type="text/javascript"></script>
-		<script src="/js/jquery.tablesorter.widget-filter.min-2.26.6.js" type="text/javascript"></script>
--->
 		<script src="/js/custom.js" type="text/javascript"></script>
+		<script src="/js/showdown.min.js" type="text/javascript"></script>
 	</body>
 </html>
