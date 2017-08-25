@@ -8,12 +8,62 @@ body, html {
     font-size: 16px;
 }
 
-#header {
+*:focus {
+    outline: none;
+}
 
+button, input, select {
+    height: 26px;
+    border: 1px solid #999;
+    padding: 0 5px;
+    background-color: #fff;
+    min-width: 120px;
+}
+
+button {
+    background-color: #ddd;
+    padding: 0 15px;
+    white-space: nowrap;
+    transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+button:hover {
+    background-color: #000 !important;
+    color: #fff;
+    border-color: #000;
+}
+
+select, input[type="date"] {
+    cursor: pointer;
+}
+
+.center {
+    text-align: center !important;
+}
+
+.contain {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.highlight {
+    background-color: #FFAAAA;
+}
+
+#header {
+    height: 70px;
+    border-bottom: 1px solid #AAA;
+    h1 {
+        line-height: 70px;
+        margin: 0;
+    }
 }
 
 #main {
-
+    margin-top: 25px;
 }
 
 #footer {

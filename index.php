@@ -27,17 +27,21 @@
 		</div>
 
 		<div id="main">
-			<p>Hello world!</p>
-			<div id="vue">
-				<ul>
-					<li v-for="(item, index) in items">
-						{{ item.message }}
-					</li>
-				</ul>
+		    <div class="contain">
+				<p>Hello world!</p>
+				<div id="vue">
+					<ul>
+						<li v-for="(item, index) in items">
+							{{ item.message }}
+						</li>
+					</ul>
+				</div>
 			</div>
 		</div>
 
 		<div id="footer">
+		    <div class="contain">
+			</div>
 		</div>
 
 		<div id="popupModal">
