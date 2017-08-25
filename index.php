@@ -9,13 +9,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
 	<link href="/css/bootstrap_custom.css" rel="stylesheet" type="text/css">
 	<link href="/css/style.css" rel="stylesheet" type="text/css">
-	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-	<!--[if lt IE 9]>
-	<script src="/css/html5shiv.min.js"></script>
-	<![endif]-->
+	<link href="/fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
 </head>
 
-<body class="css-transitions-off">
+<body class="css-transitions-off waiting">
 	<!--[if lt IE 8]>
 	<p class="viewerror">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" target="_blank">upgrade your browser</a> to improve your experience.</p>
 	<![endif]-->
@@ -29,7 +26,10 @@
 	<div id="footer">
 	</div>
 
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" type="text/javascript"></script>
+	<script src="/js/jquery-3.0.0.min.js" type="text/javascript"></script>
+	<script src="/js/vue-2.0.1.min.js"></script>
+	<script src="/js/jquery.tablesorter.min-2.26.6.js" type="text/javascript"></script>
+	<script src="/js/jquery.tablesorter.widget-filter.min-2.26.6.js" type="text/javascript"></script>
 	<script src="/scripts/custom.js" type="text/javascript"></script>
 </body>
 </html>

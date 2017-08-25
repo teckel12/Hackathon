@@ -125,8 +125,6 @@ figure {
 }
 
 hr {
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
   box-sizing: content-box;
   height: 0;
   overflow: visible;
@@ -197,8 +195,6 @@ fieldset {
 }
 
 legend {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   color: inherit;
   display: table;
@@ -213,8 +209,6 @@ textarea {
 
 [type="checkbox"],
 [type="radio"] {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   padding: 0;
 }
@@ -239,14 +233,10 @@ textarea {
   padding: 0;
   -webkit-margin-before: 0;
   -webkit-margin-after: 0;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
 *:before, *:after {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -270,7 +260,6 @@ ul, ol {
 
 a {
   -webkit-transition: background-color ease-in-out 0.25s, color ease-in-out 0.25s, border-bottom-color ease-in-out 0.25s;
-  -moz-transition: background-color ease-in-out 0.25s, color ease-in-out 0.25s, border-bottom-color ease-in-out 0.25s;
   transition: background-color ease-in-out 0.25s, color ease-in-out 0.25s, border-bottom-color ease-in-out 0.25s;
 }
 
@@ -300,7 +289,6 @@ body.mobile-menu {
 
 .css-transitions-off * {
   -webkit-transition: none !important;
-  -moz-transition: none !important;
   transition: none !important;
 }
 
