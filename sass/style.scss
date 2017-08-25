@@ -1,16 +1,234 @@
-//@import "compass";
-@import "partials/variables";
-//@import "partials/extends";
-//@import "partials/mixins";
-@import "bootstrap/normalize";
+/*! Created using SASS (see README for details) */
+
+@import "partials/normalize";
 @import "partials/global";
-@import "partials/header";
 
+body, html {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
 
-/* Main */
+#header {
+
+}
+
 #main {
 
 }
 
+#footer {
+    height: 70px;
+}
 
-@import "partials/footer";
+/* GlutenFreeToast */
+#toast {
+    position: fixed;
+    z-index: 500;
+    bottom: 5px;
+    right: 5px;
+    width: 300px;
+    user-select: none;
+    > div {
+        display: table;
+        width: 100%;
+        opacity: 0;
+        padding: 10px 20px;
+        margin-bottom: -95px;
+        background-color: #aaddff;
+        border: 1px solid #364c90;
+        transition: opacity ease-in-out 0.15s, margin-bottom ease-in-out 0.15s;
+        > i {
+            display: table-cell;
+            width: 35px;
+            padding-right: 10px;
+            color: #002fbb;
+            vertical-align: middle;
+            font-size: 25px;
+            line-height: 22px;
+            text-align: center;
+            cursor: pointer;
+        }
+        > i:before {
+            content: "\f129";
+        }
+        > i:hover {
+            color: #710311;
+        }
+        > i:hover:before {
+            content: "\f00d" !important;
+        }
+        > span {
+            display: table-cell;
+            vertical-align: middle;
+            font-size: 0.95em;
+            line-height: 1.25;
+        }
+    }
+    > div.show {
+        opacity: 0.95;
+        margin-top: 5px;
+        margin-bottom: 0;
+    }
+    > div.occupied {
+        background-color: #ffc1c1;
+        border: 1px solid #773333;
+        > i {
+            color: #710311;
+        }
+        > i:before {
+            content: "\f165";
+        }      
+    }
+    > div.available {
+        background-color: #DDFFDD;
+        border: 1px solid #337733;
+        > i {
+            color: #337733;
+        }
+        > i:before {
+            content: "\f164";
+        }      
+    }
+    > div.error {
+        background-color: #FFFFAA;
+        border: 1px solid #999933;
+        > i {
+            color: #999933;
+        }
+        > i:before {
+            content: "\f071";
+        }      
+    }
+}
+
+/* Waiting */
+#waiting {
+    display: block;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    opacity: 0;
+    z-index: -2;
+    transition: opacity 0.2s ease, z-index 0.2s ease;
+    i.fa {
+        display: none;
+        font-size: 75px;
+        line-height: 100vh;
+        position: relative;
+    }
+}
+body > * {
+    transition: opacity 0.2s ease;
+}
+body.waiting {
+    > * {
+        opacity: 0.2;
+        cursor: progress !important;
+    }
+    #waiting {
+        opacity: 1;
+        z-index: 1000;
+    }
+    #waiting i.fa {
+        display: inline-block;
+    }
+    #waiting i.fa {
+        animation: fa-spin 2s infinite linear;
+    }
+    /* This is specific to this report */
+    button#search {
+        i.fa {
+            animation: fa-spin 2s infinite linear;
+        }
+        i.fa:before {
+            content: "\f110";
+        }
+    }
+}
+
+/* Popup modal */
+#popupModal {
+	color: #000;
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	z-index: 10000;
+	display: none;
+	background-color: rgba(0, 0, 0, 0.8);
+    transition: none;
+    .modal-dialog {
+        position: fixed;
+        width: 500px;
+        max-width: 89%;
+        max-height: 94%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .modal-dialog.top-center {
+        top: 1em;
+        top: 3vh;
+        transform: translate(-50%, 0);
+    }
+    .modal-dialog.bottom-center {
+        top: auto;
+        bottom: 1em;
+        bottom: 3vh;
+        transform: translate(-50%, 0);
+    }
+    .modal-dialog.wide {
+        width: 1200px;
+    }
+    .modal-body {
+        max-height: 80vh;
+        background-color: #fff;
+        overflow: auto;
+        padding: 2em;
+        .modal-copy {
+            table {
+                width: inherit;
+            }
+        }
+    }
+    .confirm-buttons {
+        margin-top: 30px;
+        button {
+            font-size: 17px;
+            padding: 0 15px;
+            margin: 0;
+            min-width: 100px;
+            line-height: 45px;
+            height: auto;
+            border: 1px solid #AAA;
+            background-color: #EEE;
+            transition: all ease 0.2s;
+        }
+        button:hover:enabled {
+            border-color: #000;
+            background-color: #000;
+            color: #FFF;
+        }
+        .cancel {
+            float: right;
+        }
+    }
+    h1 {
+        margin: 0 0 30px 0;
+    }
+}
+@media (max-width: 500px) {
+	#popupModal {
+        .modal-dialog {
+            max-width: 86%;
+            left: 49%;
+    	}
+	    .modal-body {
+    		padding: 2em 1em 0 1em;
+        }
+	}
+}
