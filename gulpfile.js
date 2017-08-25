@@ -10,12 +10,12 @@ gulp.task("sass", function() {
 			css: "css",
             sass: "sass",
             image: "images",
-            javascript: "scripts",
+            javascript: "js",
             comments: false,
-            style: "expanded", // Make compact or compressed for production (default expanded)
-            sourcemap: true // Make false for production (default true)
+            style: "compressed", // Make compact or compressed for production (default expanded)
+            sourcemap: false // Make false for production (default true)
 		}))
-        .pipe(autoprefixer("> 0.05%", "last 3 versions", "IE >= 8", "Firefox >= 4", "Safari >= 5", "iOS >= 4", "Android >= 3", {
+        .pipe(autoprefixer("> 0.1%", "IE >= 11", "Firefox >= 30", "Safari >= 8", "iOS >= 7", "Android >= 4.4", "Chrome >= 32", {
 			cascade: false,
 			remove: false
 		}))
@@ -24,20 +24,13 @@ gulp.task("sass", function() {
 });
 
 // Start browser sync
-gulp.task('browser-sync', function() {
-    browsersync.init(null, {
-        server: {
-            baseDir: "./"
-        }
-    });
+gulp.task('default', ['sass'], function () {
+    browsersync.init();
+    gulp.watch("./sass/**/*.scss", ['sass']);
+    gulp.watch(["./index.php", "./v1/**/*.php", "./js/**/*.js"], ['bs-reload']);
 });
 
-// Force reload (for HTML)
+// Force reload (for PHP or JS)
 gulp.task('bs-reload', function () {
     browsersync.reload();
-});
-
-gulp.task('default', ['sass', 'browser-sync'], function () {
-    gulp.watch("sass/**/*.scss", ['sass']);
-    gulp.watch("*.html", ['bs-reload']);
 });
