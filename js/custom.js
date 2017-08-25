@@ -65,14 +65,8 @@ vm = new Vue({
 				event.preventDefault();
 				var start = $(event.target).get(0).selectionStart;
 				var end = $(event.target).get(0).selectionEnd;
-				spaces = "\t"
-				$(event.target).val($(event.target).val().substring(0, start)
-					+ spaces 
-					+ $(event.target).val().substring(end));
-
-				// put caret at right position again
-				$(event.target).get(0).selectionStart =
-				$(event.target).get(0).selectionEnd = start + 1;
+				$(event.target).val($(event.target).val().substring(0, start) + "\t"  + $(event.target).val().substring(end));
+				$(event.target).get(0).selectionStart = $(event.target).get(0).selectionEnd = start + 1;
 			}
 		}
 	}
