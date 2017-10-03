@@ -109,6 +109,12 @@ select, input[type="date"] {
                 padding: 5px;
                 border: 1px solid #AAA;
                 overflow-y: scroll;
+                blockquote {
+                    background-color: #EEE;
+                    padding: 1em 1em 0 1em;
+                    margin-bottom: 1em;
+                    border-left: 3px solid grey;
+                }
             }
         }
         .add {
