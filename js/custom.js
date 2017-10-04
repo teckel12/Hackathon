@@ -73,7 +73,7 @@ $(document).ready(function(){
 	$.ajaxSetup({ cache: false });
 
 	/* Load JSON todo file */
-	$.getJSON( "/data/todo.json", function(json) {
+	$.getJSON( "data/todo.json", function(json) {
 		todo = json;
 		vm.todo = todo;
 	});
