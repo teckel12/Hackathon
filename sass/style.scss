@@ -67,8 +67,13 @@ select, input[type="date"] {
 
 #main {
     margin-top: 25px;
+    #closeAll {
+        min-width: auto;
+        width: 21px;
+        padding: 2px;
+        margin: 0 32px 0 -3px;
+    }
     #dueSort {
-        margin-left: 54px;
         margin-bottom: 5px;
         width: 150px;
     }
@@ -91,12 +96,19 @@ select, input[type="date"] {
             input[type=text] {
                 width: 300px;
             }
+            .due {
+                border-color: #C90;
+            }
+            .pastDue {
+                border-color: #F66;
+            }
         }
         .content {
             display: none;
             width: 100%;
             margin-bottom: 5px;
             textarea {
+                resize: none;
                 display: inline-block;
                 width: 543px;
                 height: 250px;
@@ -108,7 +120,7 @@ select, input[type="date"] {
                 height: 250px;
                 padding: 5px;
                 border: 1px solid #AAA;
-                overflow-y: scroll;
+                overflow-y: auto;
                 code {
                     background-color: #EEE;
                     padding: 1px 4px;
@@ -123,6 +135,7 @@ select, input[type="date"] {
         }
         .add {
             margin-top: 10px;
+            padding-left: 2px;
         }
     }
 }

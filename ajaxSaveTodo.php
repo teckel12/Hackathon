@@ -1,5 +1,9 @@
 <?php
     $json = $_POST['json'];
+	if ($_SERVER["HTTP_HOST"] == 'todo.leethost.com') {
+		$json = stripslashes($json);
+	}
+
     $fileName = 'data/todo.json';
 
 	if (json_decode($json) != null) {
