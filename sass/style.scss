@@ -121,6 +121,13 @@ select, input[type="date"] {
                 padding: 5px;
                 border: 1px solid #AAA;
                 overflow-y: auto;
+                h1, h2, h3, h4, h5, h6 {
+                    margin: 0 0 16px 0;
+                }
+                pre {
+                    background-color: #EEE;
+                    margin-bottom: 1em;
+                }
                 code {
                     background-color: #EEE;
                     padding: 1px 4px;
