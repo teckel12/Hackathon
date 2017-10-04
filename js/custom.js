@@ -20,9 +20,7 @@ vm = new Vue({
 		},
 		expand: function() {
 			var isExpanded = $(event.target).hasClass('fa-chevron-up');
-			$('#vue .content').slideUp();
-			$('#vue .expand').addClass('fa-chevron-down');
-			$('#vue .expand').removeClass('fa-chevron-up');
+			closeAll();
 			if (!isExpanded) {
 				var content = $(event.target).parent().parent().find('.content');
 				var converter = new showdown.Converter(),
@@ -35,9 +33,7 @@ vm = new Vue({
 			}
 		},
 		add: function() {
-			$('#vue .content').slideUp();
-			$('#vue .expand').addClass('fa-chevron-down');
-			$('#vue .expand').removeClass('fa-chevron-up');
+			closeAll();
 			vm.todo.push({
 				'timestamp': new Date().toDateInputValue(),
 				'title': '',
@@ -83,11 +79,16 @@ $(document).ready(function(){
 	});
 
 	/* Sort buttons */
+	$('#closeAll').click(function() {
+		closeAll();
+	});
 	$('#dueSort').click(function() {
+		closeAll();
 		todo.sortTodoDue();
 		saveTodo();
 	});
 	$('#titleSort').click(function() {
+		closeAll();
 		todo.sortTodoTitle();
 		saveTodo();
 	});
@@ -112,6 +113,12 @@ function saveTodo() {
 			popupModal("<h1>Error</h1><br>Error saving todo list");
 		}
 	});
+}
+
+function closeAll() {
+	$('#vue .content').slideUp();
+	$('#vue .expand').addClass('fa-chevron-down');
+	$('#vue .expand').removeClass('fa-chevron-up');
 }
 
 function popupModal(content, confirm = false, callback) {
@@ -164,6 +171,11 @@ function waitStart() {
 
 function waitEnd() {
 	$('body').removeClass('waiting');
+}
+
+function today() {
+	var today = new Date().toDateInputValue();
+	return today;
 }
 
 Date.prototype.toDateInputValue = (function() {
